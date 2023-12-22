@@ -9,77 +9,155 @@
         <button @click="showReview('critics')">Рецензии критиков</button>
       </div>
       <div class="review-info" v-if="currentReview">
-        <div class="author">
-          <img :src="currentReview.image" :alt="currentReview.alt">
-          <h3>{{ currentReview.author }}</h3>
-          <p>Статус: {{ currentReview.status }}</p>
+        <div class="review-cards">
+            <div class="review-card" v-for="(review, index) in reviews[currentReviewCategory]" :key="index">
+                <!-- Контент карточки, используя переменную review -->
+                <div class="author">
+                <img :src="review.image" :alt="review.alt">
+                <h3>{{ review.author }}</h3>
+                <p>Статус: {{ review.status }}</p>
+                </div>
+                <div class="review-details">
+                <h3>{{ review.title }}</h3>
+                <p>Оценка: {{ review.rating }}</p>
+                <p>{{ review.text }}</p>
+                </div>
+            </div>
         </div>
-        <div class="review-details">
-          <h3>{{ currentReview.title }}</h3>
-          <p>Оценка: {{ currentReview.rating }}</p>
-          <p>{{ currentReview.text }}</p>
-        </div>
-      </div>
+    </div>
     </section>
   </template>
   
   <script>
   import AppMain from "./AppMain.vue";
-
+  
   export default {
     components: {
-    AppMain, 
+      AppMain,
     },
-    data() {    
+    data() {
       return {
         reviews: {
-          books: {
-            image: require('../assets/book1.jpg'),
-            alt: 'Книга 1',
-            author: 'Ирина Витальевна',
-            status: 'новичок',
-            title: 'Марина Повалей "Сначало было похищение"',
-            rating: '4/5',
-            text: 'Отзыв о книге Марина Повалей "Сначала было похищение" ...'
-            // Полный текст рецензии
-          },
-          // Определения для других рецензий (experts, novelties, critics)
-          experts: { 
-            image: require('../assets/book2.jpg'),
-            alt: 'Книга 2',
-            author: 'Крутой эксперт',
-            status: 'эксперт',
-            title: 'Сумерки"',
-            rating: '2/5',
-            text: 'Лютый треш какой то' },
-          novelties: {  image: 'bookcover1.jpg',
-            alt: 'Книга 3',
-            author: 'Крутой эксперт',
-            status: 'эксперт',
-            title: 'Сумерки"',
-            rating: '2/5',
-            text: 'Лютый треш какой то' },
-          critics: {  image: 'bookcover1.jpg',
-            alt: 'Книга новинка',
-            author: 'Крутой эксперт',
-            status: 'эксперт',
-            title: 'Сумерки"',
-            rating: '2/5',
-            text: 'Лютый треш какой то' }
+          books: [
+            {
+              image: require('../assets/book1.jpg'),
+              alt: 'Книга 1',
+              author: 'Ирина Витальевна',
+              status: 'новичок',
+              title: 'Марина Повалей "Сначала было похищение"',
+              rating: '4/5',
+              text: 'Отзыв о книге Марина Повалей "Сначала было похищение" ...'
+            },
+            {
+              image: require('../assets/book2.jpg'),
+              alt: 'Книга 2',
+              author: 'Алексей Петров',
+              status: 'новичок',
+              title: 'Джордж Оруэлл "1984"',
+              rating: '5/5',
+              text: 'Отзыв о книге Джорджа Оруэлла "1984" ...'
+            },
+            // Дополнительные книги добавляются по аналогии...
+          ],
+          // Остальные категории рецензий также могут быть массивами
+          experts: [
+            {
+              image: require('../assets/book1.jpg'),
+              alt: 'Книга 3',
+              author: 'ААА',
+              status: 'эксперт',
+              title: 'Марина Повалей "Сначала было похищение"',
+              rating: '4/5',
+              text: 'Отзыв о книге Марина Повалей "Сначала было похищение" ...'
+            },
+            {
+              image: require('../assets/book2.jpg'),
+              alt: 'Книга 2',
+              author: 'Алексей Петров',
+              status: 'эксперт',
+              title: 'Джордж Оруэлл "1984"',
+              rating: '5/5',
+              text: 'Отзыв о книге Джорджа Оруэлла "1984" ...'
+            },
+        ],
+          novelties: [
+          {
+              image: require('../assets/book1.jpg'),
+              alt: 'Книга 1',
+              author: 'ББББ',
+              status: 'новичок',
+              title: 'Марина Повалей "Сначала было похищение"',
+              rating: '4/5',
+              text: 'Отзыв о книге Марина Повалей "Сначала было похищение" ...'
+            },
+            {
+              image: require('../assets/book1.jpg'),
+              alt: 'Книга 2',
+              author: 'Алексей Петров',
+              status: 'любитель',
+              title: 'Джордж Оруэлл "1984"',
+              rating: '5/5',
+              text: 'Отзыв о книге Джорджа Оруэлла "1984" ...'
+            },
+          ],
+          critics:  [
+          {
+              image: require('../assets/book1.jpg'),
+              alt: 'Книга 1',
+              author: 'Ирина Витальевна',
+              status: 'новичок',
+              title: 'Марина Повалей "Сначала было похищение"',
+              rating: '4/5',
+              text: 'Отзыв о книге Марина Повалей "Сначала было похищение" ...'
+            },
+            {
+              image: require('../assets/book1.jpg'),
+              alt: 'Книга 2',
+              author: 'Алексей Петров',
+              status: 'любитель',
+              title: 'Джордж Оруэлл "1984"',
+              rating: '5/5',
+              text: 'Отзыв о книге Джорджа Оруэлла "1984" ...'
+            },
+          ]
         },
-        currentReview: null
+        currentReviewIndex: 0,
+        currentReviewCategory: 'books'
       };
     },
-    methods: {
-      showReview(type) {
-        this.currentReview = this.reviews[type];
+    computed: {
+      currentReview() {
+        return this.reviews[this.currentReviewCategory][this.currentReviewIndex];
       }
+    },
+    methods: {
+        showReview(type) {
+    this.currentReviewCategory = type;
+    this.currentReviewIndex = 0;
+  },
+  showNextReview() {
+    const reviewsLength = this.reviews[this.currentReviewCategory].length;
+    if(this.currentReviewIndex < reviewsLength - 1) {
+      ++this.currentReviewIndex;
+    } else {
+      this.currentReviewIndex = 0;
+    }
+  },
+  showPreviousReview() {
+    const reviewsLength = this.reviews[this.currentReviewCategory].length;
+    if(this.currentReviewIndex > 0) {
+      --this.currentReviewIndex;
+    } else {
+      this.currentReviewIndex = reviewsLength - 1;
+    }
+  }
     },
     mounted() {
       this.showReview('books'); // Показать рецензии на книги по умолчанию
     }
   };
   </script>
+  
   
   <style>
     .swiper {
@@ -93,11 +171,39 @@
   max-width: 800px; /* Максимальная ширина секции */
 }
 
+.review-card {
+    background: #fff; /* Белый фон для карточки */
+    border: 1px solid #ebebeb; /* Тонкая рамка вокруг карточки */
+    padding: 16px; /* Отступ внутри карточки */
+    margin: 10px; /* Расстояние между карточками */
+    box-shadow: 5px 2px 4px rgba(0,0,0,0.1); /* Тень для объемности */
+    border-radius: 10px; /* Скругление углов карточки */
+    flex: 0 1 calc(33.333% - 20px); /* Флекс для размеров с маржином */
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение контента */
+    max-width: 350px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
+
 /* Заголовки */
 h2 {
   margin: 0;
   padding-bottom: 10px; /* отступ снизу для заголовка */
   color: #333; /* темный текст */
+}
+
+.review-cards {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 /* Стилизация кнопок */
