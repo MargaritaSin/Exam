@@ -1,6 +1,6 @@
 <template>
     <div class="book">
-      <img :src="book.cover" :alt="`Книга ${book.title}`">
+    <img :src="require(`@/assets/${book.cover}`)" :alt="`Книга ${book.title}`">
       <div class="book-details">
         <h3>{{ book.title }}</h3>
         <p>Автор: {{ book.author }}</p>
@@ -19,52 +19,37 @@
         required: true
       }
     },
-    data() {
-    return {
-        newReleases: [
-        {
-            id: 1,
-            title: 'Новая книга 1',
-            author: 'Автор 1',
-            genre: 'Фантастика',
-            description: 'Описание новой книги 1',
-            cover: 'cover-url-1.jpg',
-        },
-        {
-            id: 2,
-            title: 'Новая книга 2',
-            author: 'Автор 2',
-            genre: 'Роман',
-            description: 'Описание новой книги 2',
-            cover: 'cover-url-2.jpg',
-        },
-        // Таким же образом добавьте другие книги
-        ],
-        popularBooks: [
-        {
-            id: 3,
-            title: 'Популярная книга 1',
-            author: 'Автор 3',
-            genre: 'Боевик',
-            description: 'Описание популярной книги 1',
-            cover: 'cover-url-3.jpg',
-        },
-        // Добавьте другие популярные книги
-        ],
-        bestsellers: [
-        {
-            id: 4,
-            title: 'Бестселлер 1',
-            author: 'Автор 4',
-            genre: 'Детектив',
-            description: 'Описание бестселлера 1',
-            cover: 'cover-url-4.jpg',
-        },
-        // Добавьте другие бестселлеры
-        ],
-    };
-},
-
-  };
+};
   </script>
-  
+
+<style scoped>
+/* Стили для каждой карточки книги */
+.book {
+  background: #fff; /* Белый фон для карточки */
+  border: 1px solid #ebebeb; /* Тонкая рамка вокруг карточки */
+  padding: 16px; /* Отступ внутри карточки */
+  margin: 10px; /* Расстояние между карточками */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Тень для объемности */
+  border-radius: 4px; /* Скругление углов карточки */
+  flex: 0 1 calc(33.333% - 20px); /* Флекс для размеров с маржином */
+  display: flex;
+  flex-direction: column; /* Вертикальное расположение контента */
+  max-width: 350px;
+}
+
+img {
+  max-width: 200px; /* Чтобы изображения были адаптивными */
+  border-radius: 4px; /* Скругление углов изображения */
+  max-height: 250px;
+}
+
+.book-details {
+  flex: 1; /* Заставляет блок описания растягиваться */
+  padding-top: 8px; /* Отступ сверху для контента описания */
+}
+
+.book-details h3 {
+  color: #f60; /* Оранжевый цвет для названия книги */
+  margin: 10px 0; /* Отступы для названия книги */
+}
+</style>
