@@ -61,6 +61,7 @@ footer {
   width: 100%;
   text-align: center;
   color: black;
+  font-size: 18px;
 }
 
 .footer-content {

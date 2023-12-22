@@ -9,7 +9,10 @@
       </ul>
     </nav>
     <input type="text" placeholder="Поиск книг" />
-    <button>Войти</button>
+    <div id="login">
+      <button>Войти</button>
+      <button>Регистрация</button>
+    </div>
   </header>
 </template>
 
@@ -37,6 +40,7 @@ export default {
 <style scoped>
 h3 {
   align-self: center;
+  font-size: 25px;
 }
 
 header {
@@ -68,6 +72,7 @@ a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  font-size: 20px;
 }
 
 li:hover {
@@ -83,11 +88,16 @@ input {
   margin: 10px;
   margin-right: 5px;
   border-radius: 30px;
+  min-width: 250px;
 }
 
 button {
   padding: 5px 10px;
   border: 0.5px solid #ff6600;
+  font-size: 15px;
+  min-width: 120px;
+  border-radius: 10px;
+  margin-left: 10px;
 }
 
 button:hover {
