@@ -4,7 +4,7 @@
     <nav>
       <ul>
         <li v-for="item in menuItems" :key="item.id">
-          {{ item.text }}
+         <router-link :to="item.to">{{ item.text }}</router-link>
         </li>
       </ul>
     </nav>
@@ -18,15 +18,21 @@ export default {
   data() {
     return {
       menuItems: [
-        { id: 1, text: "Главная" },
-        { id: 2, text: "Что почитать" },
-        { id: 3, text: "Жанры" },
-        { id: 4, text: "Авторы" },
-      ],
+        { id: 1, text: "Главная", to: "/" },
+        { id: 2, text: "Что почитать", to: "/what-read" },
+        { id: 3, text: "Жанры", to: "/genres" },
+        { id: 4, text: "Авторы", to: "/authors" },
+        ],
     };
   },
+  methods: {
+    goToPage(path) {
+      this.$router.push(path);
+    }
+  }
 };
 </script>
+
 
 <style scoped>
 h3 {

@@ -1,39 +1,29 @@
 <template>
   <div id="app">
-    <!-- Вставляем компонент Menu в верхнюю часть -->
     <AppCarus></AppCarus>
-    <AppMain class="swiper"></AppMain>
-    <AppFoot></AppFoot>
-    <!-- Остальное содержимое приложения -->
-
     <router-view />
+    <AppFoot></AppFoot>
   </div>
 </template>
 
 <script>
-// Подключаем компонент Menu
+// Вам больше не нужно импортировать MainPage сюда, так как он будет использоваться через маршрутизацию
 import AppCarus from "./components/AppCarus.vue";
-import AppMain from "./components/AppMain.vue";
 import AppFoot from "./components/AppFoot.vue";
 
 export default {
   components: {
     AppCarus,
-    AppMain,
-    AppFoot,
+    AppFoot
   },
   // Остальная логика вашего приложения
 };
 </script>
 
-<!-- Стили для вашего приложения -->
 <style>
 #app {
   display: flex;
   flex-direction: column;
-}
-
-.swiper {
-  height: 400px;
+  min-height: 100vh; /* Используем min-height вместо height для корректного заполнения всего экрана */
 }
 </style>
