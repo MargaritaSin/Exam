@@ -60,7 +60,7 @@
             author: 'Автор 3',
             genre: 'Роман',
             description: 'Описание новой книги 3',
-            cover: 'book2.jpg'
+            cover: 'book3.jpg'
         }
         // ...другие новые книги
       ],
@@ -71,7 +71,7 @@
           author: 'Автор 1',
           genre: 'Фантастика',
           description: 'Описание новой книги 1',
-          cover: 'book1.jpg',
+          cover: 'book4.jpg',
         },
         {
           id: 2,
@@ -79,7 +79,7 @@
           author: 'Автор 2',
           genre: 'Роман',
           description: 'Описание новой книги 2',
-          cover: 'book2.jpg',
+          cover: 'book5.jpg',
         },
         {
             id: 3,
@@ -87,7 +87,7 @@
             author: 'Автор 3',
             genre: 'Роман',
             description: 'Описание новой книги 3',
-            cover: 'book2.jpg'
+            cover: 'book6.jpg'
         }
       ],
       bestsellers: [
@@ -97,7 +97,7 @@
           author: 'Автор 1',
           genre: 'Фантастика',
           description: 'Описание новой книги 1',
-          cover: 'book1.jpg',
+          cover: 'book7.jpg',
         },
         {
           id: 2,
@@ -105,7 +105,7 @@
           author: 'Автор 2',
           genre: 'Роман',
           description: 'Описание новой книги 2',
-          cover: 'book2.jpg',
+          cover: 'book8.jpg',
         },
         {
             id: 3,
@@ -113,7 +113,7 @@
             author: 'Автор 3',
             genre: 'Роман',
             description: 'Описание новой книги 3',
-            cover: 'book2.jpg'
+            cover: 'book4.jpg'
         }
       ],
     };
@@ -141,7 +141,7 @@
     align-self: center;
   }
 
-  p {
+  .section p {
     font-size: 20px;
     align-self: center;
   }

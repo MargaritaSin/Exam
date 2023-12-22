@@ -62,7 +62,7 @@
           // Остальные категории рецензий также могут быть массивами
           experts: [
             {
-              image: require('../assets/book1.jpg'),
+              image: require('../assets/book3.jpg'),
               alt: 'Книга 3',
               author: 'ААА',
               status: 'эксперт',
@@ -71,7 +71,7 @@
               text: 'Отзыв о книге Марина Повалей "Сначала было похищение" ...'
             },
             {
-              image: require('../assets/book2.jpg'),
+              image: require('../assets/book4.jpg'),
               alt: 'Книга 2',
               author: 'Алексей Петров',
               status: 'эксперт',
@@ -82,7 +82,7 @@
         ],
           novelties: [
           {
-              image: require('../assets/book1.jpg'),
+              image: require('../assets/book5.jpg'),
               alt: 'Книга 1',
               author: 'ББББ',
               status: 'новичок',
@@ -91,7 +91,7 @@
               text: 'Отзыв о книге Марина Повалей "Сначала было похищение" ...'
             },
             {
-              image: require('../assets/book1.jpg'),
+              image: require('../assets/book6.jpg'),
               alt: 'Книга 2',
               author: 'Алексей Петров',
               status: 'любитель',
@@ -102,7 +102,7 @@
           ],
           critics:  [
           {
-              image: require('../assets/book1.jpg'),
+              image: require('../assets/book7.jpg'),
               alt: 'Книга 1',
               author: 'Ирина Витальевна',
               status: 'новичок',
@@ -111,7 +111,7 @@
               text: 'Отзыв о книге Марина Повалей "Сначала было похищение" ...'
             },
             {
-              image: require('../assets/book1.jpg'),
+              image: require('../assets/book8.jpg'),
               alt: 'Книга 2',
               author: 'Алексей Петров',
               status: 'любитель',

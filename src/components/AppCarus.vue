@@ -16,31 +16,31 @@
   </header>
   <!-- Модальное окно для входа -->
   <div v-if="showLogin" class="popup-overlay" @click="hidePopups">
-  <div class="popup" @click.stop>
-    <h2>Вход</h2>
-    <!-- Форма входа -->
-    <form class="subform" >
-      <input type="text" placeholder="Имя пользователя">
-      <input type="password"  placeholder="Пароль">
-      <button type="submit">Войти</button>
-    </form>
-    <button class="form_btn" @click="hidePopups">Закрыть</button>
+    <div class="popup" @click.stop>
+      <h2>Вход</h2>
+      <!-- Форма входа -->
+      <form class="subform">
+        <input type="text" placeholder="Имя пользователя">
+        <input type="password" placeholder="Пароль">
+        <button type="submit">Войти</button>
+      </form>
+      <button class="form_btn" @click="hidePopups">Закрыть</button>
+    </div>
   </div>
-</div>
   <!-- Модальное окно для регистрации -->
   <div v-if="showRegister" class="popup-overlay" @click="hidePopups">
-  <div class="popup" @click.stop>
-    <h2>Регистрация</h2>
-    <!-- Форма регистрации -->
-    <form class="subform" >
-      <input type="text" placeholder="Имя пользователя">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Пароль">
-      <button type="submit">Зарегистрироваться</button>
-    </form>
-    <button class="form_btn" @click="hidePopups">Закрыть</button>
+    <div class="popup" @click.stop>
+      <h2>Регистрация</h2>
+      <!-- Форма регистрации -->
+      <form class="subform">
+        <input type="text" placeholder="Имя пользователя">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Пароль">
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+      <button class="form_btn" @click="hidePopups">Закрыть</button>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -54,8 +54,8 @@ export default {
         { id: 4, text: "Авторы", to: "/authors" },
       ],
       searchQuery: '',
-      showLogin: false,   // Для контроля видимости поп-апа входа
-      showRegister: false // Для контроля видимости поп-апа регистрации
+      showLogin: false,
+      showRegister: false,
     };
   },
   methods: {
@@ -73,10 +73,11 @@ export default {
     hidePopups() {
       this.showLogin = false;
       this.showRegister = false;
-    }
+    },
   }
 };
 </script>
+
 
 <style scoped>
 
@@ -97,8 +98,6 @@ export default {
   justify-content: center;
   z-index: 1000;
 }
-
-
 
 .popup {
   background: white;
