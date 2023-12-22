@@ -8,7 +8,8 @@
         </li>
       </ul>
     </nav>
-    <input type="text" placeholder="Поиск книг" />
+    <!-- Обновите ваш input, добавив v-model и событие @keyup.enter -->
+    <input type="text" placeholder="Поиск книг" v-model="searchQuery" @keyup.enter="searchBooks" />
     <div id="login">
       <button>Войти</button>
       <button>Регистрация</button>
@@ -25,12 +26,14 @@ export default {
         { id: 2, text: "Что почитать", to: "/what-read" },
         { id: 3, text: "Жанры", to: "/genres" },
         { id: 4, text: "Авторы", to: "/authors" },
-        ],
+      ],
+      searchQuery: '', // данные для привязки к инпуту
     };
   },
   methods: {
-    goToPage(path) {
-      this.$router.push(path);
+    // Метод для поиска книг
+    searchBooks() {
+      this.$router.push({ path: '/search', query: { query: this.searchQuery } });
     }
   }
 };
