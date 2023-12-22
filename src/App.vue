@@ -2,7 +2,7 @@
   <div id="app">
     <!-- Вставляем компонент Menu в верхнюю часть -->
     <AppCarus></AppCarus>
-    <AppMain></AppMain>
+    <AppMain class="swiper"></AppMain>
     <AppFoot></AppFoot>
     <!-- Остальное содержимое приложения -->
 
@@ -31,5 +31,9 @@ export default {
 #app {
   display: flex;
   flex-direction: column;
+}
+
+.swiper {
+  height: 400px;
 }
 </style>
